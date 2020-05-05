@@ -89,6 +89,8 @@ test = row_numbers[-teach]
 teaching_eddypro_unq = eddypro_numeric[teach,]
 testing_eddypro_unq = eddypro_numeric[test,]
 
+#2. ПОСТРОЕНИЕ МОДЕЛЕЙ
+
 # 1 МОДЕЛЬ (по обучающей выборке). С помощью "(.)" добавим в нее все переменные 
 model1 = lm(formula , data = teaching_eddypro_unq)
 
@@ -177,7 +179,8 @@ anova(model4, model3)
 #Посмотрим графики
 plot(model4)
 
-#КОРРЕЛЯЦИОННЫЙ АНАЛИЗ ПЕРЕМЕННОЙ
+#3. КОРРЕЛЯЦИОННЫЙ АНАЛИЗ ПЕРЕМЕННОЙ
+
 #Обозначим только те переменные, которые участвуют в корреляционном анализе
 cor_teaching_eddypro = select(teaching_eddypro_unq, Tau, rand_err_Tau, H, rand_err_H, LE, qc_LE, rand_err_LE, 
                               co2_flux, qc_co2_flux, rand_err_h2o_flux, H_strg, co2_molar_density, h2o_time_lag,
