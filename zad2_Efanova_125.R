@@ -190,16 +190,16 @@ cor_teaching_eddypro = select(teaching_eddypro_unq, Tau, rand_err_Tau, H, rand_e
 cor_eddypro = cor(cor_teaching_eddypro) %>% as.data.frame
 
 #Построение графиков по полученной модели
-#Построим график h2o_flux от h2o_flux, использовав значения, полученные на модели 3, и на основе обучающей выборки
-qplot(h2o_flux, h2o_flux, data = teaching_eddypro_unq) + geom_line(aes(y = predict(model3, teaching_eddypro_unq)))
+#Построим график h2o_flux от h2o_flux, использовав значения, полученные на модели 4, и на основе обучающей выборки
+qplot(h2o_flux, h2o_flux, data = teaching_eddypro_unq) + geom_line(aes(y = predict(model4, teaching_eddypro_unq)))
 #График расположен под углом 45 градусов и проходит через все точки
-#Построим график h2o_flux от h2o_flux, использовав значения, полученные на модели 3, и на основе тестирующей выборки
-qplot(h2o_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
+#Построим график h2o_flux от h2o_flux, использовав значения, полученные на модели 4, и на основе тестирующей выборки
+qplot(h2o_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
 
 #Для примера выведем несколько графиков зависимостей переменной h2o_flux от: air_temperature, h2o_time_lag, Tau, 
-#un_h2o_flux и co2_flux
-qplot(air_temperature, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
-qplot(h2o_time_lag, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
-qplot(Tau, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
-qplot(un_h2o_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
-qplot(co2_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model3, testing_eddypro_unq)))
+#un_h2o_flux и co2_flux на основе тестирующей модели
+qplot(air_temperature, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
+qplot(h2o_time_lag, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
+qplot(Tau, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
+qplot(un_h2o_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
+qplot(co2_flux, h2o_flux, data = testing_eddypro_unq) + geom_line(aes(y = predict(model4, testing_eddypro_unq)))
